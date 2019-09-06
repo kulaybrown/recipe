@@ -85,7 +85,7 @@ class Detail extends React.PureComponent {
     // console.log(special)
     const renderRecipe = recipe.slice(itemIndex, itemIndex + 1).map((item, i) => (
       <div className="recipe-cont" key={i.toString()}>
-        <img src={path+`${item.images.full}`} alt=""/>
+        <img src={item.images.full.indexOf('://') !== -1 ? item.images.full : `${path + item.images.full}`} alt=""/>
         <div className="recipe-header">
           <h2>{item.title}</h2>
           <p>{item.description}</p>

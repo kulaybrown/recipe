@@ -31,20 +31,13 @@ class Homepage extends React.PureComponent {
       });
   }
 
-  // recipeDetail() {
-  //   const { allRecipe } = this.state;
-  //   console.log(allRecipe);
-  //   var str = `${allRecipe}`;
-  //   str = str.replace(/\s+/g, '-').toLowerCase();
-  //   console.log(str);
-  // }
   render() {
     console.log(this.state.allRecipe[0]);
     const renderAllRecipe = this.state.allRecipe.map((item, i) => (
       <li key={i.toString()}>
         <Link to={`/${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
           <div className="list-box">
-            <img src={`${path + item.images.full}`} alt="" />
+            <img src={item.images.full.indexOf('://') !== -1 ? item.images.full : `${path + item.images.full}`} alt="" />
             <div className="short-info">
               <h1>{item.title}</h1>
               <p>{item.description}</p>

@@ -14,7 +14,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import Detail from 'containers/Detail/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Footer from 'components/Footer';
+import Navigation from 'components/Navigation';
 
 import GlobalStyle from '../../global-styles';
 import 'antd/dist/antd.css';
@@ -44,7 +44,7 @@ export default function App() {
         <Route exact path="/:id" component={Detail} />
         <Route path="" component={NotFoundPage} />
       </Switch>
-      <Footer />
+      <Navigation />
       <GlobalStyle />
     </AppWrapper>
   );
