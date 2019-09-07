@@ -5,9 +5,10 @@
  */
 
 import React from 'react';
+import StackGrid from 'react-stack-grid';
+import sizeMe from 'react-sizeme';
 import { Link } from 'react-router-dom';
 import { HomeWrapper } from './styles';
-import utensil from '../../images/utensils-solid.png';
 // import 'antd/lib/button/style/css';
 const path = 'http://localhost:3001/';
 class Homepage extends React.PureComponent {
@@ -32,9 +33,22 @@ class Homepage extends React.PureComponent {
   }
 
   render() {
-    console.log(this.state.allRecipe[0]);
+    // console.log(this.state.allRecipe[0]);
+    const { size: { width } } = this.props;
     const renderAllRecipe = this.state.allRecipe.map((item, i) => (
-      <li key={i.toString()}>
+      // <li key={i.toString()}>
+      //   <Link to={`/${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
+      //     <div className="list-box">
+      //       <img src={item.images.full.indexOf('://') !== -1 ? item.images.full : `${path + item.images.full}`} alt="" />
+      //       <div className="short-info">
+      //         <h1>{item.title}</h1>
+      //         <p>{item.description}</p>
+      //         <p className="cook-time">{item.cookTime} Mins</p>
+      //       </div>
+      //     </div>
+      //   </Link>
+      // </li>
+      <div key={i.toString()} className="list-box-container">
         <Link to={`/${item.title.replace(/\s+/g, '-').toLowerCase()}`}>
           <div className="list-box">
             <img src={item.images.full.indexOf('://') !== -1 ? item.images.full : `${path + item.images.full}`} alt="" />
@@ -45,21 +59,17 @@ class Homepage extends React.PureComponent {
             </div>
           </div>
         </Link>
-      </li>
+      </div>
     ));
 
     return (
       <HomeWrapper>
-        <div className="wlogo">
-          <h1>Recipe <img src={utensil} alt="" /></h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, omnis soluta officia et laudantium molestiae tenetur quas consequuntur quidem, eaque enim iusto placeat? Amet repellat beatae recusandae eum veritatis officiis?</p>
-        </div>
-        <ul>
+        <StackGrid columnWidth={width <= 575 ? '100%' : '50%' && width <= 991 ? '33.33%' : '25%'} gutterWidth={20} gutterheight={20} monitorImagesLoaded={true}>
           {renderAllRecipe}
-        </ul>
+        </StackGrid>
       </HomeWrapper>
     );
   }
 }
 
-export default Homepage;
+export default sizeMe()(Homepage);

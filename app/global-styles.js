@@ -27,6 +27,23 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+  .ant-form-item-label {
+      label {
+      font-family: 'Lato', sans-serif;
+    }
+  }
+  .ant-drawer-content-wrapper {
+    @media (max-width: 480px) {
+      width: 100%!important;
+    }
+  }
+  .ant-form-item-children {
+    .ant-btn-dashed {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
 `;
 
 export default GlobalStyle;

@@ -26,4 +26,7 @@ ul {
         }
     }
 }
+label {
+    font-family: 'Lato', sans-serif;
+}
 `;

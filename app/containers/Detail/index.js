@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Tag, Icon, Collapse  } from 'antd';
+import { Tag, Icon, Collapse, Divider  } from 'antd';
 import { DetailWrapper } from './styles.js';
 
 const { Panel } = Collapse;
@@ -30,7 +30,7 @@ class Detail extends React.PureComponent {
     fetch(`${path}recipes`)
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        // console.log(json);
         for (let index = 0; index < json.length; index++) {
           for (let index2 = 0; index2 < json[index].ingredients.length; index2++) {
             // console.log(json[index].ingredients[index2].uuid);
@@ -76,9 +76,13 @@ class Detail extends React.PureComponent {
     <span className="ingredient-side"><i>&nbsp;- {x.amount} {x.measurement} </i>{ x.type ? <Icon type="tag" theme="filled" className={x.type} /> : ''}</span>
   );
 
+  genExtra2 = (x) => (
+    <span className="ingredient-side"><i>&nbsp; {x.optional ? 'Optional' : ''} </i></span>
+  );
+
   createMarkup = (y) => {
     return {__html: y};
-  }
+  };
 
   render() {
     const { recipe, itemIndex, special } = this.state;
@@ -98,6 +102,10 @@ class Detail extends React.PureComponent {
           <Tag style={{ background: '#fff', borderStyle: 'solid' }}>
             <Icon type="user" /> {item.servings}
           </Tag>
+          
+        </div>
+        <div style={{paddingRight: '20px',paddingLeft: '20px',marginBottom: '-20px'}}>
+          <Divider />
         </div>
         <div className="ingredients">
           <h3>Ingredients</h3>
@@ -116,8 +124,16 @@ class Detail extends React.PureComponent {
                   </div>
                 </Panel>
               ))
+              
             }
           </Collapse>
+          <Divider />
+          <h3>Directions</h3>
+          {
+            item.directions.map((direction, i) => (
+              <Panel key={i} header={'- ' + direction.instructions} extra={this.genExtra2(direction)} key={i.toString()}></Panel>
+            ))
+          }
         </div>
       </div>
     ));

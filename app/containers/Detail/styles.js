@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 export const DetailWrapper = styled.div`
+max-width: calc(1200px + 16px * 2);
+margin: 0 auto;
+width: 100%;
+margin-top: 70px;
+padding: 0px 15px;
+margin-bottom: 20px;
 .recipe-cont {
     background: #fff;
     > img {
@@ -9,6 +15,9 @@ export const DetailWrapper = styled.div`
 }
 .recipe-header {
     padding: 20px;
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
     h2 {
         font-family: 'Lato', sans-serif;
         font-size: 22px;
@@ -22,6 +31,9 @@ export const DetailWrapper = styled.div`
 }
 .ingredients {
     padding: 20px;
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
     h3 {
         font-family: 'Lato', sans-serif;
         font-size: 20px;
@@ -45,6 +57,9 @@ export const DetailWrapper = styled.div`
     color: #202121!important;
     cursor: pointer!important;
     padding: 12px 16px!important;
+    @media (max-width: 480px) {
+        padding: 5px 5px!important;
+    }
 }
 .ingredient-side {
     font-weight: 400;

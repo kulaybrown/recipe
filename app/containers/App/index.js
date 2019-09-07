@@ -14,18 +14,18 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import Detail from 'containers/Detail/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Navigation from 'components/Navigation';
+import NavigationTop from 'components/NavigationTop';
 
 import GlobalStyle from '../../global-styles';
 import 'antd/dist/antd.css';
 import { basename } from 'path';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
+  // max-width: calc(1200px + 16px * 2);
+  // margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  // padding: 0 16px;
   flex-direction: column;
 `;
 
@@ -39,12 +39,12 @@ export default function App() {
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
+      <NavigationTop />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/:id" component={Detail} />
         <Route path="" component={NotFoundPage} />
       </Switch>
-      <Navigation />
       <GlobalStyle />
     </AppWrapper>
   );
