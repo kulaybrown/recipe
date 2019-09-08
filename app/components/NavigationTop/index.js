@@ -274,10 +274,11 @@ class NavigationTop extends React.PureComponent {
     return (
       <WrapperTopNavigation>
         <div className="nav-top-cont">
-          <p>Welcome, <b>Yourname</b></p>
-          <h1>Your Recipe</h1>
+          <div className="nav-welcome">
+            <p>Welcome, <b>Yourname</b></p>
+            <h1>Your Recipe</h1>
+          </div>
           <div className="action-tool">
-            <a href="#"><Icon type="search" /></a>
             <a href="#"><Icon type="setting" theme="filled" /></a>
             <Link to="/">
               <Icon type="home" theme="filled" />

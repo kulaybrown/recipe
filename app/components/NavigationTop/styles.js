@@ -17,11 +17,23 @@ width: 100%;
     @media (max-width: 480px) {
         padding: 10px 10px;
     }
+    .nav-welcome {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        @media (max-width: 480px) {
+            width: 40%;
+        }
+    }
     .action-tool{
         display: flex;
         align-items: center;
         > * {
             margin-left: 20px;
+            @media (max-width: 480px) {
+                margin-left: 10px;
+            }
         }
         a {
             font-size: 20px;
@@ -54,7 +66,7 @@ width: 100%;
         font-size: 20px;
         margin: 0px;
         color: #202121;
-        @media (max-width: 500px) {
+        @media (max-width: 767px) {
             display: none;
         }
     }
