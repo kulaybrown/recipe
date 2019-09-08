@@ -89,6 +89,7 @@ class NavigationTop extends React.PureComponent {
         );
         console.log(this.state.ingred);
         this.addRecipe();
+        this.onClose();
       }
     });
     
