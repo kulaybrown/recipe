@@ -39,6 +39,11 @@ margin-bottom: 20px;
         font-size: 20px;
         font-weight: 700;
     }
+    .ant-collapse-item.directions-section {
+        .ant-collapse-header {
+            font-weight: 400;
+        }
+    }
 }
 .ant-tag {
     display: inline-flex;

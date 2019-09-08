@@ -131,7 +131,7 @@ class Detail extends React.PureComponent {
           <h3>Directions</h3>
           {
             item.directions.map((direction, i) => (
-              <Panel key={i} header={'- ' + direction.instructions} extra={this.genExtra2(direction)} key={i.toString()}></Panel>
+              <Panel className="directions-section" key={i} header={'- ' + direction.instructions} extra={this.genExtra2(direction)} key={i.toString()}></Panel>
             ))
           }
         </div>
